@@ -37,8 +37,10 @@ class MainActivity : AppCompatActivity() {
 
         override fun doInBackground(vararg urls: String): Event? {
             // Perform the HTTP request for earthquake data and process the response.
+            if (urls.isEmpty() || urls[0] == null) return null
             return Utils.fetchEarthquakeData(urls[0])
         }
+
 
         override fun onPostExecute(result: Event?) {
             // Update the information displayed to the user.
